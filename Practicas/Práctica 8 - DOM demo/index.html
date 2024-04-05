@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 3 DOM</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1 id="title">Mi página de las Tortugas Ninja</h1>
+    </div>
+    <h2>Personajes</h2>
+    <div class="container">
+        <button id="characterChange">Cambiar Imagen</button>
+        <div class="imgContainer">
+            <h2 id="characterName"></h2>
+            <img 
+                id="characterImg" 
+                src="https://thetoycollectorsguide.files.wordpress.com/2020/11/img_2646.jpg?w=750"
+                alt="Personaje"
+            />
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>
+            <input id="name" type="text" placeholder="Escribe tu nombre" />
+            <button id="setName">Enviar</button>
+        </div>
+        <div>
+            <span id="createdBy">Aplicación creada por:</span>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
