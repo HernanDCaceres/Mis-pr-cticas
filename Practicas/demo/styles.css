@@ -1,0 +1,13 @@
+body{
+    background-color: yellow;
+}
+
+.cuadrado{
+    border: 1px solid black;
+    width: 500px;
+    height: 500px;
+}
+
+.rojo{
+    background-color: rgba(12, 236, 221, 0.9)
+}
