@@ -93,19 +93,22 @@ let tempData = [
         event.preventDefault();
         console.log(event.target.id);
         let deleteId = Number(event.target.id);
-        tempData = tempData.filter((character) => character.id !== )
-    }
+        tempData = tempData.filter((character) => character.id !== deleteId)
+        root.innerHTML = "";
+        createCard(tempData);
+    };
 
     const createCard = (arrayCharacter = []) => {
 
-            const arrayCardCharacter = arrayCharacter.map((character) => {
+        const arrayCardCharacter = arrayCharacter.map((character) => {
+            
             const cardCharacter = document.createElement("div");
             const nameCharacter = document.createElement("h2");
             const statusCharacter = document.createElement("p");
             const speciesCharacter = document.createElement("p");
             const imageCharacter = document.createElement("img");
             const buttonDelete = document.createElement("button");
-
+            
             buttonDelete.innerText = "eliminar";
             buttonDelete.id = character.id;
             nameCharacter.innerText = character.name;
@@ -113,10 +116,10 @@ let tempData = [
             speciesCharacter.innerText = character.species;
             imageCharacter.src = character.image;
             cardCharacter.classList.add("card-character");
-
+            imageCharacter.classList.add("imgContainer");
             buttonDelete.addEventListener("click", deleteCharacter);
 
-            cardCharacter.append(nameCharacter, statusCharacter, statusCharacter, speciesCharacter, imageCharacter, buttonDelete);
+            cardCharacter.append(buttonDelete, nameCharacter, statusCharacter, statusCharacter, speciesCharacter, imageCharacter);
 
             root.append(cardCharacter);
 

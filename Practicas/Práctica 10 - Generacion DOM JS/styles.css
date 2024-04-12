@@ -10,3 +10,7 @@
     flex-wrap: wrap;
     gap: 25px
 }
+
+.negrita{
+    color: red;
+}
