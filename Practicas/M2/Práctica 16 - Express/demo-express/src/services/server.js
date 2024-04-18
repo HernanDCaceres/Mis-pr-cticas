@@ -7,8 +7,16 @@
 //* Responderá con esto => {id, nombre, nombre de usuario, email}.
 
 const express = require("express");
+const router = require("../routes/");
+const morgan = require("morgan")
 
 const app = express();
+
+//* Aca quiero usar el middleware de Morgan
+
+app.use(morgan("dev"));
+
+app.use(router);
 
 module.exports = app;
 
