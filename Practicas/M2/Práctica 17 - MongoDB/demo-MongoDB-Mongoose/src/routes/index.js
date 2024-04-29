@@ -1,6 +1,7 @@
 const { Router} = require("express");
 const usersController = require("../controllers/usersController");
 const vehiculesController = require("../controllers/vehiculesController");
+const validateId = require("../middleware/validateId");
 
 const router = Router();
 
@@ -8,7 +9,7 @@ router.get("/users", usersController.getUsers);
 
 router.get("/users/byName", usersController.getuserByName);
 
-router.get("/users/:id", usersController.getUserById);
+router.get("/users/:id", validateId, usersController.getUserById);
 
 router.post("/users", usersController.createUser);
 

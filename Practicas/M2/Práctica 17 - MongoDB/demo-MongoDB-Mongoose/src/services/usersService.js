@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const formatAge = require("../helpers/formatAge");
 
 module.exports = {
     getUsers: async () => {
@@ -17,7 +18,7 @@ module.exports = {
     },
 
     createUser: async (user) => {
-        const newUser = await User.create(user);
+        const newUser = await User.create({...user, age: formatAge(user.age) });
         return newUser;
     },
 
