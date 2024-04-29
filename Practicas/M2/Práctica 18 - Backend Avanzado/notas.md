@@ -102,6 +102,36 @@ Esta detección permite gestionar de manera adecuada cualquier tipo de error que
     Una de las grandes aplicaciones de estos middlewares es el manejo de errores
     que pueden presentarse de forma repetitiva dentro del código y que pueden ser validados antes de que la solicitud llegue incluso al handler.
 
+# Express error handler
+
+Express cuenta con un middleware de manejo de errores predeterminado de manera implícita que captura los errores que ocurren dentro de las rutas y otros middlewares de la aplicación.
+
+Para hacer uso del **error handler de express** solo es necesario agregarlo como middleware a nuestras rutas con la siguiente estructura.
+
+``` js
+app.use((err, req, res, next) => {
+    //Manejo de error
+});
+return go(f, seed, [])
+```
+
+# Funciones de orden superior
+
+El concepto de función de orden superior se refiere a aquellas funciones que aceptan otras funciones como argumentos para usarlas en un bloque de lógica adicional.
+
+La idea general es crear una función de orden superior que se encargue de procesar los errores de nuestros handlers de forma “genérica”, permitiendo planificar el manejo de errores dentro de una sola función en lugar de hacerlo en cada handler. 
+
+# Utils & Helpers
+
+En general, estos términos se refieren a funciones o grupo de funciones que proporcionan utilidades auxiliares. Realizan tareas comunes, y en ocasiones repetitivas, para facilitar ciertas operaciones dentro de nuestros proyectos.
+
+| **HELPERS**     | **UTILS** |
+|-----------------|-----------|
+|Están enfocados en almacenar funciones auxiliares para una tarea específica dentro de la aplicación.| Estos trabajan con implementaciones más genéricas. |
+
+## Mapa de conceptos
+
+<img src="./Assets/6" width="">
 
 
 
