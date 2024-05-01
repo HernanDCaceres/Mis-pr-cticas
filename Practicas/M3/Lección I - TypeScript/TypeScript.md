@@ -98,3 +98,5 @@ Por último, solo tendrás que asignar en el package.json un nuevo script llamad
 "lint": "eslint . --ext .ts"
 ```
 
+# Tipos de Datos
+
