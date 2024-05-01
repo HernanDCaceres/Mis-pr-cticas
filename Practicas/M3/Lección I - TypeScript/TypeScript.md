@@ -65,3 +65,36 @@ npx tsc index.ts.
 ```
 
 Al hacerlo, nos daremos cuenta que dentro de nuestro proyecto se crea un archivo de .js. ¡Es un archivo de JavaScript básico!
+
+# ESLint
+
+ESLint es una herramienta para análisis de código de JavaScript, puede ser implementada con TypeScript mediante la adición de algunos plugins con características específicas. Para incorporarlo a nuestro proyecto, es necesario instalar dependencias que serán utilizadas durante el proceso de desarrollo, a través del comando…
+
+```
+npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier --save-dev
+
+```
+
+De esta forma podemos utilizar a ESLint para analizar y darle formato al código, aunque debemos hacer algunas configuraciones. En primera instancia, hay que crear un archivo de configuración llamado .eslintrc.js (nótese el punto del inicio) entro del cual configuraremos los plugins necesarios.
+
+```js
+// .eslintrc.js
+
+module.exports = {
+    parser: "@typescript-eslint/parser",
+    pluggins: ["@typescript-eslint"],
+    extends: ["eslint:recommended", "pluggin:@typescript-eslint/recommended"],
+    rules: {
+        //!Se pueden añadir reglas personalizadas aquí
+    },
+};
+```
+
+---
+
+Por último, solo tendrás que asignar en el package.json un nuevo script llamado lint con el valor de la imagen.
+
+```js
+"lint": "eslint . --ext .ts"
+```
+
