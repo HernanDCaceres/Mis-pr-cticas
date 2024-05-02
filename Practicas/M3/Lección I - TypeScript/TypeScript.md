@@ -98,5 +98,96 @@ Por último, solo tendrás que asignar en el package.json un nuevo script llamad
 "lint": "eslint . --ext .ts"
 ```
 
-# Tipos de Datos
+# Funciones y Tipado
 
+Esto nos permitía definir qué tipo de dato vamos a guardar en una variable. También exploramos el tipado en tipos de datos primitivos y de qué manera TypeScript nos proporciona una inferencia sobre estos.
+
+
+# Interfaces
+
+Las interfaces **permiten definir la forma que debe tener los tipos de datos más complejos.**
+
+En el caso de los objetos, por ejemplo, especifican qué propiedades deben contener, así como los tipos de datos asociados a sus valores.
+
+```js
+interface Usuario {
+    nombre: string;
+    edad: number;
+}
+```
+
+## Tipos Personalizados
+
+Los tipos (types), similares a las interfaces, proporcionan reglas que nos permiten definir tipos de datos como objetos, arrays, funciones, etc. 
+
+## Interfaces | Casos de uso
+
+Tanto las interfaces como los types permiten ser extendidos por otras interfaces o types. Esto quiere decir que pueden heredar información para usarla en sus propias estructuras. Sin embargo, lo más común es utilizar interfaces, debido a su legibilidad y mejor visualización de errores en compilación.
+
+**Ejemplo:**
+
+```js
+interface ITrabajo {
+    compania: string;
+    posicion: string;
+}
+
+interface IEmpleado extends ITrabajo {
+    nombre: string;
+    edad: number;
+}
+
+const empleado: IEmpleado = {
+    compania: "Google",
+    posicion: "Senior Engineer",
+    nombre: "Pedro Perez",
+    edad: 35
+};
+```
+
+## Tipos | Casos de uso
+
+ * **Union Types**
+
+    Estos permiten describir valores que pueden ser uno de varios tipos posibles, ya sean primitivos o complejos.
+
+    Por ejemplo, podemos definir un tipo con las tallas de camisas para una tienda virtual, con las opciones "S", "M", "L" y “XL”, de manera que únicamente pueda tomar estos valores y valide, por ejemplo, si hay disponibles o no en stock. Para indicar que este será un nuevo tipo de dato debemos inicializarlo con el indicador type.
+
+    Al utilizar unión types se proporciona una forma clara y segura de manejar casos en los que una variable puede tener distintos valores.
+
+    ```js
+    type tallaCamisa = "S" | "M" | "L" | "XL";
+
+    function validarTalla(talla: tallaCamisa): string {
+        if(talla === "XL" || talla === "S"){
+            return "Agotado"
+        }
+        return "Disponible"
+    }
+
+    console.log(validarTalla("L")); //"Disponible"
+    console.log(validarTalla("S")); //"Agotado"
+
+    ```
+
+    ---
+
+* **ALIAS**
+
+    Los alias de tipos son una característica en TypeScript que permiten asignar un nombre personalizado a un tipo existente o complejo. Esto facilita la creación de tipos reutilizables.
+
+    En este caso, Coordenada es un alias para un array de dos números. Al utilizar este alias, estamos haciendo que el código sea más expresivo y fácil de entender.
+
+    ```js
+    type Coordenada = [number, number];
+
+    function imprimirCoordenada(coordenada: Coordenada) {
+        console.log(`Latitud: ${coordenada[0]}, longitud: ${coordenada[1]}`)
+    }
+
+    //Uso de alias de Tipo
+
+    const ubicacion Coordenada = [40.7128, -74.0060];
+    imprimirCoordenada(ubicacion); //Latitud: 40.7128, longitud: -74.0060 
+
+    ```
