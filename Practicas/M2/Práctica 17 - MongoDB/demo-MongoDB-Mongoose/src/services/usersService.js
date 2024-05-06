@@ -27,6 +27,5 @@ module.exports = {
         user.vehicule = vehiculeId;
         await user.save();
         return user;
-    } 
-
+    }
 };
