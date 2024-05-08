@@ -10,4 +10,6 @@ router.get("/users", auth, getUsers);
 
 router.delete("/users", deleteUser);
 
+
+
 export default router;

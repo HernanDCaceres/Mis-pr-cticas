@@ -25,7 +25,7 @@ export const createUserService = async(userData: UserDto):Promise<IUser> => {
     id++;
     return newUser;
 };
-
+ 
 export const getUsersService = async(): Promise<IUser[]> => {
     return users;
  };
