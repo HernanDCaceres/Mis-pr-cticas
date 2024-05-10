@@ -1,17 +1,23 @@
 import { Request, Response } from "express";
-import { createUserService, getUsersService, deleteUserService } from "../services/userService";
-import IUser from "../interfaces/IUser";
+import { createUserService, getUsersService, getUserByIdService, deleteUserService } from "../services/userService";
+import { User } from "../entities/User";
 
 export const createUser = async(req: Request, res: Response) => { 
     const {name, email, age, active} = req.body;
-    const newUser: IUser = await createUserService({ name, email, age, active })
+    const newUser: User = await createUserService({ name, email, age, active })
     res.status(201).json(newUser);
 };
 
 export const getUsers = async(req: Request, res: Response) => {
-    const users: IUser[] = await getUsersService();
+    const users: User[] = await getUsersService();
     res.status(200).json(users);
  };
+
+ export const getUserById = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const user: User | null= await getUserByIdService(Number(id));
+    res.status(200).json(user);
+}
 
 export const deleteUser = async(req: Request, res: Response) => { 
     const { id } = req.body;

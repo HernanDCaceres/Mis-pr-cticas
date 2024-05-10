@@ -80,3 +80,16 @@ Las entidades representan objetos reales con propiedades y relaciones. Puedes te
 
 Un modelo, por su parte, corresponde a una clase de TypeScript que define cómo se verán y se comportarán las entidades en tu aplicación. Estos modelos se usan para crear, leer, actualizar y eliminar datos. 
 
+## Inserción de datos
+
+Este paso tiene una característica muy importante. Debemos tener en cuenta la integridad de los datos. Es decir, que la información que queramos añadir a la tabla sea consistente con los respectivos campos que en ella están definidos.
+
+## Relaciones
+
+En la bases de datos relacionales trabajamos con diversas tablas las cuales pueden estar relacionadas entre sí mediante diferentes tipos de cardinalidad. Dentro de TypeORM la definición del tipo de relación es muy sencilla gracias al uso de decoradores.
+
+1. Uno a uno mediante *@OneToOne*.
+2. Muchos a uno mediante *@ManyToOne*.
+3. Uno a muchos mediante *@OneToMany*.
+4. Muchos a muchos mediante *@ManyToMany*.
+

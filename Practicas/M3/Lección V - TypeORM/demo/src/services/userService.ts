@@ -1,4 +1,6 @@
+import { AppDataSource, UserModel } from "../config/appDataSource";
 import UserDto from "../dto/userDto";
+import { User } from "../entities/User";
 import IUser from "../interfaces/IUser";
 
 let users: IUser[] = [{
@@ -11,26 +13,25 @@ let users: IUser[] = [{
 
 let id: number = 1;
 
-export const createUserService = async(userData: UserDto):Promise<IUser> => { 
-    //? Recibir los datos del usuario
-    //? Crear un nuevo usuario
-    //? Incluir el nuevo usuario dentro del arreglo 
-    //? retornar el objeto creado
-    const newUser: IUser = {
-        id,
-        name: userData.name,
-        email: userData.email,
-        age: userData.age,
-        active: userData.active
-    }
-    users.push(newUser);
-    id++;
-    return newUser;
+export const createUserService = async(userData: UserDto) => { 
+    const user = await UserModel.create(userData);
+    const result = await UserModel.save(user);
+    return user;
 };
  
-export const getUsersService = async(): Promise<IUser[]> => {
+export const getUsersService = async(): Promise<User[]> => {
+    const users = await UserModel.find({
+        relations: {
+            vehicles: true
+        }
+    });
     return users;
  };
+
+export const getUserByIdService = async(id: number):Promise<User | null > => {
+    const user = await UserModel.findOneBy({id});
+    return user;
+}
 
 export const deleteUserService = async(id: number): Promise<void> => { 
     users = users.filter((user: IUser) => {
