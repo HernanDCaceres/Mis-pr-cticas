@@ -10,13 +10,10 @@ export const AppDataSource = new DataSource({
     username: "postgres",
     password: "Mgrex@920514",
     database: "demo_typeorm",
-    // dropSchema: true,
+    dropSchema: true,
     synchronize: true,
     logging: false,
     entities: [User, Vehicle],
     subscribers: [],
     migrations: [],
 });
-
-export const UserModel = AppDataSource.getRepository(User);
-export const VehicleModel = AppDataSource.getRepository(Vehicle);
