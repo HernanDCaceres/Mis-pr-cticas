@@ -4,16 +4,6 @@ import { User } from "../entities/User";
 import { Vehicle } from "../entities/Vehicule";
 
 
-
-export const getVehiclesService = async (): Promise<Vehicle[]> => {
-    const vehicles = await VehicleModel.find({
-        relations: {
-            user: true
-        }
-    });
-    return vehicles;
-}
-
 export const createVehicleService = async (vehicle: CreateVehicleDto): Promise<Vehicle> => {
     const newVehicle = await VehicleModel.create(vehicle);
     await VehicleModel.save(newVehicle);
@@ -28,4 +18,13 @@ export const createVehicleService = async (vehicle: CreateVehicleDto): Promise<V
     }
 
     return newVehicle;
+}
+
+export const getVehiclesService = async (): Promise<Vehicle[]> => {
+    const vehicles = await VehicleModel.find({
+        relations: {
+            user: true
+        }
+    });
+    return vehicles;
 }
