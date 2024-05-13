@@ -1,11 +1,12 @@
-import styles from './Card.module.css'
 
-const Card  = () => {
+
+const Card  = ({character: { name, house } }) => {
+
+ 
     return (
-    <div className={styles.container}>
-        <h1>Tarjeta</h1>
-        <h3>Nombre: Hernan</h3>
-        <p>Email: email@example.com</p>
+    <div>
+        <h2>{name}:</h2>
+        <h3>{house}</h3>
     </div>
     )
 }
