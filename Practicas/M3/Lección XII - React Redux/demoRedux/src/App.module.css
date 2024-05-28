@@ -1,0 +1,13 @@
+.container {
+    margin: 10px;
+}
+.container h3 {
+    margin: 25px;
+}
+.header {
+    background-color: rgb(39, 78, 151);
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+}
+
